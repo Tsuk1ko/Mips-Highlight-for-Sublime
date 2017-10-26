@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<!-------------------------------------------
+-------------------------------------------->
+	<key>fileTypes</key>
+	<array> <!-- MIPS Assembly File Type -->
+		<string>s</string>
+		<string>S</string>
+	</array>
+	<key>name</key>
+	<string>MIPS</string>
+	<key>patterns</key> 
+	<array>
+		<dict> <!-- string -->
+			<key>match</key>
+			<string>\B("|').*?("|')\B</string>
+			<key>name</key>
+			<string>string.assembly</string>
+		</dict>
+		<dict> <!-- data and text -->
+			<key>match</key>
+			<string>\B.(data|text|code)\b</string>
+			<key>name</key>
+			<string>keyword.control.assembly</string>
+		</dict>
+		<dict> <!-- comment -->
+			<key>match</key>
+			<string>(#|;).*</string>
+			<key>name</key>
+			<string>comment.line</string>
+		</dict>
+		<dict> <!-- function -->
+			<key>match</key>
+			<string>(\w)*:(?![ \t]*\.)</string>
+			<key>name</key>
+			<string>entity.name.function.assembly</string>
+		</dict>
+		<dict> <!-- type -->
+			<key>match</key>
+			<string>\.(org|space|asciiz?|ascii|align|word(\b|16|32)|byte|double)</string>
+			<key>name</key>
+			<string>storage.type.c</string>
+		</dict>
+		<dict> <!-- 访存&传送 -->
+			<key>match</key>
+			<string>\b(l(b|h|w)u?|l(d|\.(s|d))|s(b|h|w|d)|s\.(s|d)|mov(z|n|\.(s|d))|m(t|f)cl|lui)\b</string>
+			<key>name</key>
+			<string>support.function.mnemonic.arithmetic</string>
+		</dict>
+		<dict> <!-- 算数&逻辑 -->
+			<key>match</key>
+			<string>\b(d?add(i|ui|iu)|d?(add|sub)(|u|\.(s|d))|d?(mul|div)(|u|\.d)|(and|x?or)i?|ds(llv?|r(l|a)v?))\b</string>
+			<key>name</key>
+			<string>support.function.mnemonic.arithmetic</string>
+		</dict>
+		<dict> <!-- 转换&标志 -->
+			<key>match</key>
+			<string>\b(cvt\.(d\.l|l\.d)|dslt|slt(|u|i|iu)|c\.(lt|eq|le)\.d)\b</string>
+			<key>name</key>
+			<string>support.function.mnemonic.arithmetic</string>
+		</dict>
+		<dict> <!-- control -->
+			<key>match</key>
+			<string>\b(j(|r|alr?)|b(eq|ne)z?|bcl(t|f)|nop|halt)\b</string>
+			<key>name</key>
+			<string>support.function.mnemonic.memory</string>
+		</dict>
+		<dict> <!-- register -->
+			<key>match</key>
+			<string>\B\$(?!zero)\b</string>
+			<key>name</key>
+			<string>variable.parameter.register.assembly</string>
+		</dict>
+		<dict> <!-- dec -->
+			<key>match</key>
+			<string>(\b|-)[0-9]+\b|\$zero</string>
+			<key>name</key>
+			<string>constant.character.decimal.assembly</string>
+		</dict>
+		<dict> <!-- hex -->
+			<key>match</key>
+			<string>(\b|-)(0x)(?i)[A-F0-9]+\b</string>
+			<key>name</key>
+			<string>constant.character.hexadecimal.assembly</string>
+		</dict>
+		<dict> <!-- hex -->
+			<key>match</key>
+			<string>\b(?i)[A-F0-9]+h\b</string>
+			<key>name</key>
+			<string>constant.character.hexadecimal.assembly</string>
+		</dict>
+		<dict> <!-- bin -->
+			<key>match</key>
+			<string>\b(?i)(0|1)+b\b</string>
+			<key>name</key>
+			<string>constant.character.binary.assembly</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.asm.arm</string>
+	<key>uuid</key>
+	<string>433AE307-8DE5-4856-8113-37659B1AFDA4</string>
+</dict>
+</plist>
